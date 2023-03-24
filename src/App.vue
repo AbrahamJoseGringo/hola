@@ -21,6 +21,10 @@ const soma = computed(() => contador1.value + contador2.value)
     </div>
     <div>
       <p class="fs-4"> A soma é {{ soma }}</p>
+      <p v-if="soma > 10">A soma é maior do que 10</p>
+      <p v-else>A soma é menor ou igual a 10</p>
+      <p v-if="soma % 2 === 0">A soma é par</p>
+      <p v-else>A soma é impar</p>
     </div>
    
   </div>
