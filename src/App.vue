@@ -1,35 +1,41 @@
 <script setup>
-import { computed, ref } from 'vue';
-const contador1 = ref(0)
-const contador2 = ref(0)
-const mostar = ref(true)
-const soma = computed(() => contador1.value + contador2.value)
+import { ref } from 'vue'
+const nome = ref('')
+const cores = ref([])
+const aceitaTermos = ref(false)
+const sexo = ref('')
+
 </script>
 
 <template>
-<div class="container">
-  <button class="btn btn-primary" @click="mostar = !mostar">OK</button>
-  <div v-if="mostar" class="mt-4">
-    <div>
-      <button class="btn btn-primary" @click="contador1--">-</button>
-      <span class="mx-3 fs-4">{{ contador1 }}</span>
-      <button class="btn btn-primary" @click="contador1++">+</button>
-    </div>
-    <div>
-      <button class="btn btn-primary" @click="contador2--">-</button>
-      <span class="mx-3 fs-4">{{ contador2 }}</span>
-      <button class="btn btn-primary" @click="contador2++">+</button>
-    </div>
-    <div>
-      <p class="fs-4"> A soma é {{ soma }}</p>
-      <p v-if="soma > 10">A soma é maior do que 10</p>
-      <p v-else>A soma é menor ou igual a 10</p>
-      <p v-if="soma % 2 === 0">A soma é par</p>
-      <p v-else>A soma é impar</p>
-    </div>
-   
-  </div>
-</div>
+  <input v-model="nome" />
+  <p>Nome digitado é: </p>
+<br>
+<p>Digite sua senha:</p>
+<input type="password" v-model="senha" />
+<br>
+<br>
+<p>Digite seu email:</p>
+<input type="email" v-model="email" />
+<br>
+<br>
+<p>Digite sua idade:</p>
+<input type="number" v-model="idade" />
+<br>
+  <label for="aceitaTermos">Aceito os termos</label>
+  <input type="checkbox" v-model="aceitaTermos" />
+  <p>Aceita os termos: </p>
+  <p>Cores favoritas: </p>
+  <select v-model="cores" multiple>
+    
+    <option value="vermelho">Vermelho</option>
+    <option value="verde">Verde</option>
+    <option value="azul">Azul</option>
+    <option value="amarelo">Amarelo</option>
+  </select>
+ <br>
+  <label for="sexo">Sexo  </label>
+  <input type="radio" v-model="sexo" value="masculino" /> Masculino
+  <input type="radio" v-model="sexo" value="feminino" /> Feminino
+ 
 </template>
-
-<style scoped></style>
